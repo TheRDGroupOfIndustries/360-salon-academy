@@ -22,12 +22,12 @@ export default function HeroSection () {
             under one roof. Transform your look or launch your career with us.
           </p>
           <div className="flex flex-col lg:flex-row items-center justify-center gap-3 lg:gap-8">
-            <button className="bg-linear-to-tr from-yellow-500 to-yellow-600 hover:to-yellow-700 text-white cursor-pointer px-8 py-3 rounded-md font-medium text-lg">
+            <a  href="#services" className="bg-linear-to-tr from-yellow-500 to-yellow-600 hover:to-yellow-700 text-white cursor-pointer px-8 py-3 rounded-md font-medium text-lg">
               Explore Services
-            </button>
-            <button className="border-yellow-500 border-2 text-yellow-600 font-bold px-8 py-3 rounded-md text-lg">
+            </a>
+            <a  href="#academy" className="border-yellow-500 border-2 text-yellow-600 font-bold px-8 py-3 rounded-md text-lg">
               Explore Cources
-            </button>
+            </a>
           </div>
         </div>
       </div>
