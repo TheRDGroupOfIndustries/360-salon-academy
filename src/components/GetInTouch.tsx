@@ -47,13 +47,13 @@ export default function GetInTouch() {
   const [formMessage, setFormMessage] = useState("");
   const [formMessageType, setFormMessageType] = useState("");
 
-  const handleSubmit = async (e) => {
+  const handleSubmit = async (e: any) => {
     e.preventDefault();
     setLoading(true);
 
     const formData = new FormData(e.target);
 
-    const fullName = formData.get("name") || "";
+    const fullName = (formData.get("name") as string) || "";
     const [first_name, ...rest] = fullName.split(" ");
     const last_name = rest.join(" ") || "";
 
