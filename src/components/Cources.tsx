@@ -33,15 +33,20 @@ export const CoursesList = [
   },
   {
     title: "Nail Art & Design",
-    price: "₹99,999",
-    duration: "6 Weeks",
+    price: "₹50,000",
+    duration: "1 Month",
     features: [
-      "Gel & Acrylic Application",
-      "Artistic Nail Designs",
-      "Nail Health & Care",
-      "Salon Management",
+      "Nail Art All types",
+      "Gel Polish Application",
+      "Gel Extension",
+      "Toe Extension",
+      "Acrylic Extension",
+      "Dip Powder Extension",
+      "3D Nail Art",
     ],
-    tag: "6 Weeks",
+    description:
+      "Nail Extension — Basic to Advance. With Kit. 1 Month course with hands-on practice; practice material also provided.",
+    tag: "1 Month",
     image:
       "https://readdy.ai/api/search-image?query=nail%20art%20training%20course%2C%20students%20learning%20nail%20design%20techniques%2C%20professional%20nail%20stations%2C%20gel%20polish%20and%20nail%20art%20supplies%2C%20hands-on%20nail%20education%2C%20beauty%20academy%20nail%20classroom&width=400&height=300&seq=nail-course&orientation=landscape",
   },
@@ -61,7 +66,7 @@ export const CoursesList = [
   },
 ];
 
-const CourseCard = ({image, title, tag, price, duration, features}: any) => {
+const CourseCard = ({image, title, tag, price, duration, features, description}: any) => {
     return (
       <div className="bg-white shadow-lg rounded-lg overflow-hidden hover:shadow-xl transition group">
         <div className=" bg-gray-300 relative">
@@ -97,6 +102,10 @@ const CourseCard = ({image, title, tag, price, duration, features}: any) => {
               </li>
             ))}
           </ul>
+
+          {description && (
+            <p className="text-gray-700 text-sm mb-4">{description}</p>
+          )}
 
           <button className="border-yellow-500 border-2 text-yellow-600 hover:bg-yellow-500 hover:text-white font-semibold px-8 py-3 rounded-md transition-all duration-200 cursor-pointer w-full">
             Enroll Now

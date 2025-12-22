@@ -182,8 +182,26 @@ export default function GetInTouch() {
                 <div className="">
                   <button
                     onClick={() => console.log("Directing to WhatsApp chat...")}
-                    className="inline-flex items-center justify-center px-8 py-3 bg-green-500 text-white font-semibold text-lg rounded-lg shadow-lg shadow-green-500/50 
-                                    hover:bg-green-600 transition duration-200 transform hover:scale-[1.02] active:scale-[0.98]"
+                        className={[
+                          "inline-flex",
+                          "items-center",
+                          "justify-center",
+                          "px-8",
+                          "py-3",
+                          "bg-green-500",
+                          "text-white",
+                          "font-semibold",
+                          "text-lg",
+                          "rounded-lg",
+                          "shadow-lg",
+                          "shadow-green-500/50",
+                          "hover:bg-green-600",
+                          "transition",
+                          "duration-200",
+                          "transform",
+                          "hover:scale-[1.02]",
+                          "active:scale-[0.98]",
+                        ].join(" ")}
                   >
                     <FaWhatsapp className="w-5 h-5 mr-3" />
                     Chat on WhatsApp
@@ -409,9 +427,21 @@ export default function GetInTouch() {
               <button
                 type="submit"
                 disabled={loading}
-                className={`w-full py-3 px-6 rounded-md font-medium text-lg flex items-center justify-center gap-2
-      ${loading ? "bg-yellow-400 cursor-not-allowed" : "bg-yellow-500 hover:bg-yellow-600"} 
-      text-white transition`}
+                className={[
+                  "w-full",
+                  "py-3",
+                  "px-6",
+                  "rounded-md",
+                  "font-medium",
+                  "text-lg",
+                  "flex",
+                  "items-center",
+                  "justify-center",
+                  "gap-2",
+                  loading ? "bg-yellow-400 cursor-not-allowed" : "bg-yellow-500 hover:bg-yellow-600",
+                  "text-white",
+                  "transition",
+                ].join(" ")}
               >
                 {loading ? (
                   <>

@@ -2,22 +2,37 @@
 
 import { Sparkles } from "lucide-react";
 import Image from "next/image";
+import { useEffect, useRef, useState } from "react";
 
 export default function Header() {
-  const navLinks = [
-    { label: "Home", href: "#home" },
-    { label: "About", href: "#about" },
-    { label: "Services", href: "#services" },
-    { label: "Academy", href: "#academy" },
-    { label: "Gallery", href: "#gallery" },
-    { label: "Contact", href: "#contact" },
-  ];
+  const [showAbout, setShowAbout] = useState(false);
+  const dropdownRef = useRef<HTMLDivElement | null>(null);
+
+  useEffect(() => {
+    const onDocClick = (e: MouseEvent) => {
+      if (!dropdownRef.current) return;
+      if (!(e.target instanceof Node)) return;
+      if (!dropdownRef.current.contains(e.target)) {
+        setShowAbout(false);
+      }
+    };
+    document.addEventListener("click", onDocClick);
+    return () => document.removeEventListener("click", onDocClick);
+  }, []);
+
+  const openAbout = (e: any) => {
+    e.preventDefault();
+    // navigate to about section and show dropdown
+    setShowAbout((s) => !s);
+    if (typeof window !== "undefined") {
+      window.location.hash = "#about";
+    }
+  };
+
   return (
     <header className="fixed top-0 w-full bg-white shadow-sm z-30">
       <div className="max-w-7xl mx-auto px-4 py-2 flex justify-between items-center">
         <div className="flex items-center ">
-          {/* <div className="bg-linear-to-r from-yellow-500 to-yellow-600 h-10 w-10 flex items-center justify-center p-4 rounded-full font-bold">
-          </div> */}
           <Image
             src="/new_logo.png"
             height={100}
@@ -25,18 +40,20 @@ export default function Header() {
             alt="logo"
             className="object-cover rounded-full "
           />
-          {/* <span className="text-2xl font-bold text-gray-800 font-playfair">
-            360 Salon & Academy
-          </span> */}
         </div>
         <div className="flex items-center gap-8">
-          <nav className="hidden md:flex gap-8">
+          <nav className="hidden md:flex gap-8 items-center relative">
             <a href="#home" className="text-gray-700 hover:text-yellow-600">
               Home
             </a>
-            <a href="#about" className="text-gray-700 hover:text-yellow-600">
+
+            <button
+              onClick={openAbout}
+              className="text-gray-700 hover:text-yellow-600"
+            >
               About
-            </a>
+            </button>
+
             <a href="#services" className="text-gray-700 hover:text-yellow-600">
               Services
             </a>
@@ -46,10 +63,8 @@ export default function Header() {
             <a href="#gallery" className="text-gray-700 hover:text-yellow-600">
               Gallery
             </a>
-            {/* <a href="#contact" className="text-gray-700 hover:text-yellow-600">
-              Contact
-            </a> */}
           </nav>
+
           <a
             href="#contact"
             className="bg-linear-to-tr from-yellow-500 to-yellow-600 hover:to-yellow-700 text-white px-6 py-2 rounded-md font-medium text-sm"
@@ -58,6 +73,40 @@ export default function Header() {
           </a>
         </div>
       </div>
+
+      {/* About dropdown - shows the two PDFs in public folder */}
+      {showAbout && (
+        <div
+          ref={dropdownRef}
+          className="absolute left-1/2 transform -translate-x-1/2 top-16 bg-white shadow-lg rounded-md w-80 z-40"
+        >
+          <div className="p-4">
+            <h4 className="font-semibold mb-2">About - Documents</h4>
+            <ul className="space-y-2">
+              <li>
+                <a
+                  href="/Makeup at 360 Salon.pdf"
+                  target="_blank"
+                  rel="noreferrer"
+                  className="block text-sm text-gray-700 hover:text-yellow-600"
+                >
+                  Explore More (Makeup PDF)
+                </a>
+              </li>
+              <li>
+                <a
+                  href="/SKIN (5).pdf"
+                  target="_blank"
+                  rel="noreferrer"
+                  className="block text-sm text-gray-700 hover:text-yellow-600"
+                >
+                  Explore More (Skin PDF)
+                </a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      )}
     </header>
   );
 }

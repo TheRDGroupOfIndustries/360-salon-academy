@@ -136,9 +136,11 @@ const ChatIcon = (props: any) => (
   </svg>
 );
 
-const SocialButton = ({ icon: Icon, label }: any) => (
+const SocialButton = ({ icon: Icon, label, href = "#" }: any) => (
   <a
-    href="#"
+    href={href}
+    target="_blank"
+    rel="noreferrer"
     aria-label={label}
     className="w-10 h-10 flex items-center justify-center bg-zinc-700/50 hover:bg-amber-600 rounded-lg transition duration-300"
   >
@@ -199,10 +201,21 @@ export default function Footer() {
 
             {/* Social Media Links */}
             <div className="flex space-x-3">
-              <SocialButton icon={FacebookIcon} label="Facebook" />
-              <SocialButton icon={InstagramIcon} label="Instagram" />
-              <SocialButton icon={LinkedInIcon} label="LinkedIn" />
-              <SocialButton icon={PinterestIcon} label="Pinterest" />
+                <SocialButton
+                  icon={FacebookIcon}
+                  label="Facebook"
+                  href="https://www.facebook.com/share/1AEKQTcuXc/"
+                />
+                <SocialButton
+                  icon={InstagramIcon}
+                  label="Instagram"
+                  href="https://www.instagram.com/360salonacademy?igsh=bzg5ZXluNjgwYTFn"
+                />
+                <SocialButton
+                  icon={FacebookIcon}
+                  label="Facebook (share)"
+                  href="https://www.facebook.com/share/17bCQuEfJh/"
+                />
             </div>
           </div>
 
