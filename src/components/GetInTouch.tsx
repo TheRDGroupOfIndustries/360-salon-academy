@@ -144,11 +144,10 @@ export default function GetInTouch() {
 
                   <ContactItem
                     icon={ClockIcon}
-                    title="Hours"
+                    title="Timings"
                     content={[
-                      "Mon - Fri: 9:00 AM - 8:00 PM",
-                      "Sat: 8:00 AM - 6:00 PM",
-                      "Sun: 10:00 AM - 5:00 PM",
+                      "11:00 AM - 3:00 PM Everyday",
+                      "Sunday Off",
                     ]}
                   />
 

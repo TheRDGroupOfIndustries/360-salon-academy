@@ -57,7 +57,7 @@ export default function OurStory () {
           <Image
             height={650}
             width={400}
-            src="https://static.readdy.ai/image/cb703ccaa76465b5d2a4fb97a6b053be/e2f9198e18f00cb722e366da4bf7efdc.webp"
+            src="/story.png"
             alt="Beauty professional"
             className="w-full h-full object-cover object-top"
           />

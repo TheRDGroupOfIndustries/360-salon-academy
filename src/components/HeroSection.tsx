@@ -7,7 +7,7 @@ export default function HeroSection () {
         className="w-full h-screen bg-cover bg-no-repeat"
         style={{
           backgroundImage:
-            "url('/hero-background.jpg')",
+            "url('/herosection.png')",
         }}
       >
         <div className="flex items-center justify-center flex-col h-full bg-black/50 p-4">

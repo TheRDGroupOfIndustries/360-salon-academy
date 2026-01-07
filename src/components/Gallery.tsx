@@ -8,8 +8,11 @@ import galleryLocal from "@/data/galleryLocal";
 
 export default function Gallery() {
   const [selectedAlbum, setSelectedAlbum] = useState<string[] | null>(null);
-  const [currentIndex, setCurrentIndex] = useState(0);
+  // removed single-image preview state; modal shows only a grid
   const [galleries, setGalleries] = useState([]);
+  // pagination for modal grid (3 thumbnails per page)
+  const [page, setPage] = useState(0);
+  const pageSize = 3;
 
   const fetchGallery = async () => {
     try {
@@ -25,27 +28,27 @@ export default function Gallery() {
     fetchGallery();
   }, []);
 
-  const openAlbum = (images: string[], startIndex = 0) => {
+  const openAlbum = (images: string[]) => {
     setSelectedAlbum(images);
-    setCurrentIndex(startIndex);
+    setPage(0);
   };
 
   const closeAlbum = () => {
     setSelectedAlbum(null);
-    setCurrentIndex(0);
+    setPage(0);
   };
 
-  const nextImage = () => {
-    if (selectedAlbum) {
-      setCurrentIndex((prev) => (prev + 1) % selectedAlbum.length);
-    }
-  };
+  // removed single-image prev/next (not used when showing grid)
 
-  const prevImage = () => {
-    if (selectedAlbum) {
-      setCurrentIndex((prev) => (prev - 1 + selectedAlbum.length) % selectedAlbum.length);
-    }
+  const totalPages = selectedAlbum ? Math.ceil(selectedAlbum.length / pageSize) : 1;
+  const prevPage = () => {
+    setPage((p) => Math.max(0, p - 1));
   };
+  const nextPage = () => {
+    if (selectedAlbum) {
+      setPage((p) => Math.min(totalPages - 1, p + 1));
+    }
+  }; 
 
   const AlbumThumbnail = ({ images, label }: { images: string[]; label?: string }) => {
     return (
@@ -61,7 +64,7 @@ export default function Gallery() {
             alt={label || "gallery"}
             className="w-full h-full object-cover group-hover:scale-110 transition duration-300"
           />
-          <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent"></div>
+          <div className="absolute inset-0 bg-linear-to-t from-black/60 via-transparent to-transparent"></div>
           <div className="absolute bottom-0 left-0 right-0 p-4">
             <h4 className="text-white font-bold text-lg mb-1">{label}</h4>
             <p className="text-white/80 text-sm">{images.length} photos</p>
@@ -83,6 +86,9 @@ export default function Gallery() {
     ...galleryLocal.academic,
     ...(galleries && galleries.length ? galleries.map((it: any) => urlFor(it.image).url()) : []),
   ];
+
+  // thumbnails visible on the current page (3 per page => 3x1)
+  const visibleThumbnails = selectedAlbum ? selectedAlbum.slice(page * pageSize, (page + 1) * pageSize) : [];
 
   return (
     <section className="py-20 bg-gray-50" id="gallery">
@@ -117,51 +123,64 @@ export default function Gallery() {
         </div>
       </div>
 
-      {/* Album Slider Modal */}
+      {/* Album Grid Modal (6x6 grid, no large preview, only grid and page arrows) */}
       {selectedAlbum && (
         <div className="fixed inset-0 bg-black/90 backdrop-blur-sm flex items-center justify-center z-50">
-          <div className="relative w-full h-full flex items-center justify-center p-4">
-            {/* Main Image */}
-            <div className="relative w-full max-w-5xl h-[80vh] flex items-center justify-center">
-              <Image
-                src={selectedAlbum[currentIndex]}
-                alt={`Image ${currentIndex + 1}`}
-                fill
-                className="object-contain"
-                unoptimized
-              />
+          {/* Close Button - fixed to backdrop, far top-right */}
+          <button
+            onClick={closeAlbum}
+            className="fixed top-4 right-4 bg-amber-500 hover:bg-amber-600 text-white rounded-full h-14 w-14 flex items-center justify-center shadow-lg transition z-[60]"
+            aria-label="Close"
+          >
+            <X size={28} />
+          </button>
+          
+          <div className="relative w-full max-w-[95%] h-[90vh] flex flex-col items-center justify-start p-6">
+            {/* Top page arrows - larger and more visible */}
+            <div className="w-full flex items-center justify-between mb-4 px-2">
+              <button
+                onClick={prevPage}
+                disabled={page === 0}
+                className="bg-amber-500 hover:bg-amber-600 text-white rounded-full h-16 w-16 flex items-center justify-center shadow-lg transition disabled:opacity-30 disabled:bg-gray-500"
+                aria-label="Previous page"
+              >
+                <ChevronLeft size={40} />
+              </button>
+
+              <div className="text-white/90 px-6 py-3 rounded-full bg-black/60 text-sm font-semibold">
+                Page {page + 1} / {totalPages}
+              </div>
+
+              <button
+                onClick={nextPage}
+                disabled={page >= totalPages - 1}
+                className="bg-amber-500 hover:bg-amber-600 text-white rounded-full h-16 w-16 flex items-center justify-center shadow-lg transition disabled:opacity-30 disabled:bg-gray-500"
+                aria-label="Next page"
+              >
+                <ChevronRight size={40} />
+              </button>
             </div>
 
-            {/* Previous Button */}
-            <button
-              onClick={prevImage}
-              className="absolute left-4 top-1/2 -translate-y-1/2 bg-white/20 hover:bg-white/30 text-white rounded-full h-14 w-14 flex items-center justify-center shadow-lg transition z-10"
-              aria-label="Previous"
-            >
-              <ChevronLeft size={32} />
-            </button>
-
-            {/* Next Button */}
-            <button
-              onClick={nextImage}
-              className="absolute right-4 top-1/2 -translate-y-1/2 bg-white/20 hover:bg-white/30 text-white rounded-full h-14 w-14 flex items-center justify-center shadow-lg transition z-10"
-              aria-label="Next"
-            >
-              <ChevronRight size={32} />
-            </button>
-
-            {/* Close Button */}
-            <button
-              onClick={closeAlbum}
-              className="absolute top-6 right-6 bg-white/20 hover:bg-white/30 text-white rounded-full h-12 w-12 flex items-center justify-center shadow-lg transition z-10"
-              aria-label="Close"
-            >
-              <X size={24} />
-            </button>
-
-            {/* Counter */}
-            <div className="absolute bottom-6 left-1/2 -translate-x-1/2 bg-black/50 text-white px-4 py-2 rounded-full text-sm">
-              {currentIndex + 1} / {selectedAlbum.length}
+            {/* Grid 3x1 - 3 images per row, 1 row per page */}
+            <div className="grid grid-cols-3 gap-6 w-full flex-1 max-h-[78vh]">
+              {visibleThumbnails.map((image, idx) => {
+                const globalIndex = page * pageSize + idx;
+                return (
+                  <div
+                    key={globalIndex}
+                    className="rounded overflow-hidden border-2 border-transparent"
+                  >
+                    <Image
+                      src={image}
+                      alt={`Thumbnail ${globalIndex + 1}`}
+                      width={400}
+                      height={400}
+                      className="object-cover w-full h-full"
+                      unoptimized
+                    />
+                  </div>
+                );
+              })}
             </div>
           </div>
         </div>

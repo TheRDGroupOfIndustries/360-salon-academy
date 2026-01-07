@@ -6,7 +6,7 @@ import Image from "next/image";
 export const CoursesList = [
   {
     title: "Hair Styling Mastery",
-    price: "₹1,99,999",
+    price: "₹35,000",
     duration: "12 Weeks",
     features: [
       "Advanced Cutting Techniques",
@@ -15,25 +15,24 @@ export const CoursesList = [
       "Business Skills",
     ],
     tag: "12 Weeks",
-    image:
-      "https://readdy.ai/api/search-image?query=professional%20hair%20styling%20course%20training%20session%2C%20students%20learning%20advanced%20cutting%20techniques%2C%20modern%20salon%20classroom%20setting%2C%20instructor%20demonstrating%20on%20mannequin%20heads%2C%20beauty%20academy%20environment%2C%20professional%20lighting&width=400&height=300&seq=hair-course&orientation=landscape",
+    image: "/function/WhatsApp Image 2025-12-18 at 6.46.07 PM (3).jpeg",
   },
   {
     title: "Professional Makeup Artistry",
-    price: "₹1,49,999",
-    duration: "8 Weeks",
+    price: "₹35,000",
+    duration: "12 Weeks",
     features: [
       "Bridal & Event Makeup",
       "Editorial Techniques",
       "Color Matching",
       "Client Consultation",
     ],
-    tag: "8 Weeks",
-    image: "https://images.unsplash.com/photo-1522337360788-8b13dee7a37e?w=800",
+    tag: "12 Weeks",
+    image: "/makeup.png",
   },
   {
     title: "Nail Art & Design",
-    price: "₹50,000",
+    price: "Okay",
     duration: "1 Month",
     features: [
       "Nail Art All types",
@@ -47,12 +46,11 @@ export const CoursesList = [
     description:
       "Nail Extension — Basic to Advance. With Kit. 1 Month course with hands-on practice; practice material also provided.",
     tag: "1 Month",
-    image:
-      "https://readdy.ai/api/search-image?query=nail%20art%20training%20course%2C%20students%20learning%20nail%20design%20techniques%2C%20professional%20nail%20stations%2C%20gel%20polish%20and%20nail%20art%20supplies%2C%20hands-on%20nail%20education%2C%20beauty%20academy%20nail%20classroom&width=400&height=300&seq=nail-course&orientation=landscape",
+    image: "/nails/WhatsApp Image 2025-12-18 at 8.14.35 PM.jpeg",
   },
   {
     title: "Advanced Skin Therapy",
-    price: "₹1,79,999",
+    price: "₹35,000",
     duration: "10 Weeks",
     features: [
       "Facial Treatments",
@@ -61,8 +59,7 @@ export const CoursesList = [
       "Treatment Planning",
     ],
     tag: "10 Weeks",
-    image:
-      "https://readdy.ai/api/search-image?query=skincare%20therapy%20training%20course%2C%20esthetician%20students%20learning%20facial%20treatments%2C%20professional%20spa%20classroom%2C%20skincare%20equipment%20and%20products%2C%20hands-on%20skin%20analysis%20training%2C%20beauty%20therapy%20education&width=400&height=300&seq=skin-course&orientation=landscape",
+    image: "/makeup/WhatsApp Image 2025-12-18 at 7.46.28 PM.jpeg",
   },
 ];
 

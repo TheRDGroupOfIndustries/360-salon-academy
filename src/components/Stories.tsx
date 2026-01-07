@@ -5,58 +5,36 @@ import Image from "next/image";
 
 export const testimonials = [
   {
-    name: "Sarah Mitchell",
-    role: "Bridal Client",
-    image:
-      "https://readdy.ai/api/search-image?query=elegant%20professional%20woman%20portrait%2C%20satisfied%20beauty%20salon%20client%2C%20beautiful%20makeup%20and%20hairstyling%2C%20confident%20smile%2C%20luxury%20salon%20experience%2C%20professional%20headshot%20style&width=100&height=100&seq=testimonial-1&orientation=squarish",
+    name: "Vaishnavi Vishwakarma",
+    role: "Salon Client",
+    image: "/tests/WhatsApp Image 2026-01-05 at 6.32.20 PM.jpeg",
     rating: 5,
     message:
-      "The team at 360 Salon made my wedding day absolutely perfect. Their attention to detail and artistic vision exceeded all my expectations. I felt like a true princess!",
+      "The team at 360 Salon made my special day absolutely perfect. Their attention to detail and artistic vision exceeded all my expectations. I felt like a true princess!",
   },
   {
-    name: "Jessica Chen",
+    name: "Roshini Yadav",
     role: "Academy Graduate",
-    image:
-      "https://readdy.ai/api/search-image?query=young%20professional%20beauty%20artist%20portrait%2C%20successful%20academy%20graduate%2C%20confident%20makeup%20artist%2C%20professional%20beauty%20industry%20worker%2C%20modern%20beauty%20professional%20headshot&width=100&height=100&seq=testimonial-2&orientation=squarish",
+    image: "/tests/WhatsApp Image 2026-01-05 at 6.32.22 PM.jpeg",
     rating: 5,
     message:
       "The academy program transformed my passion into a thriving career. The instructors are world-class, and the hands-on training prepared me for real-world success.",
   },
   {
-    name: "Maria Rodriguez",
+    name: "Shivani Rawat",
     role: "Regular Client",
-    image:
-      "https://readdy.ai/api/search-image?query=sophisticated%20woman%20portrait%2C%20loyal%20salon%20client%2C%20beautiful%20hair%20and%20makeup%2C%20elegant%20professional%20look%2C%20satisfied%20customer%2C%20luxury%20beauty%20service%20experience&width=100&height=100&seq=testimonial-3&orientation=squarish",
+    image: "/tests/WhatsApp Image 2026-01-05 at 6.32.25 PM.jpeg",
     rating: 5,
     message:
       "I've been coming to 360 Salon for over two years, and they never disappoint. The quality of service and the luxurious atmosphere keep me coming back every time.",
   },
   {
-    name: "Amanda Foster",
+    name: "Neha Singh",
     role: "Academy Graduate",
-    image:
-      "https://readdy.ai/api/search-image?query=confident%20beauty%20professional%20portrait%2C%20successful%20nail%20artist%2C%20academy%20graduate%2C%20professional%20beauty%20industry%20worker%2C%20modern%20nail%20technician%20headshot&width=100&height=100&seq=testimonial-4&orientation=squarish",
+    image: "/tests/WhatsApp Image 2026-01-05 at 6.32.27 PM.jpeg",
     rating: 5,
     message:
       "The nail art course at 360 Academy opened doors I never imagined. Now I run my own successful nail studio, thanks to the comprehensive training I received.",
-  },
-  {
-    name: "Emily Watson",
-    role: "Spa Client",
-    image:
-      "https://readdy.ai/api/search-image?query=relaxed%20woman%20portrait%2C%20spa%20treatment%20client%2C%20peaceful%20expression%2C%20wellness%20and%20beauty%20client%2C%20luxury%20spa%20experience%2C%20professional%20beauty%20service%20customer&width=100&height=100&seq=testimonial-5&orientation=squarish",
-    rating: 5,
-    message:
-      "The spa treatments at 360 are pure bliss. The therapists are incredibly skilled, and the atmosphere is so relaxing. It's my monthly escape from stress.",
-  },
-  {
-    name: "Rachel Kim",
-    role: "Hair Client",
-    image:
-      "https://readdy.ai/api/search-image?query=stylish%20woman%20portrait%2C%20beautiful%20hair%20transformation%20client%2C%20professional%20hair%20styling%20results%2C%20confident%20smile%2C%20luxury%20salon%20experience%2C%20modern%20hairstyle&width=100&height=100&seq=testimonial-6&orientation=squarish",
-    rating: 5,
-    message:
-      "My stylist at 360 completely understood my vision and created the perfect look for me. The color correction was flawless, and I receive compliments everywhere I go!",
   },
 ];
 
@@ -79,11 +57,12 @@ const TestimonialCard = ({ name, role, image, rating, message }: any) => {
       {/* Profile Section */}
       <div className="flex items-center space-x-4 mb-6 pt-">
         <Image
-        height={20}
-        width={20}
           src={image}
           alt={name}
-          className="w-16 h-16 rounded-full object-cover shadow-md"
+          width={80}
+          height={80}
+          className="w-20 h-20 rounded-full object-cover shadow-md"
+          unoptimized
         />
 
         <div>
