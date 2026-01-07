@@ -243,18 +243,20 @@ export default function Footer() {
               <ContactDetail
                 icon={MapPinIcon}
                 content={[
-                  "123 Beauty Boulevard",
-                  "Luxury District, City 12345",
+                  "360 SALON",
+                  "opposite SURABHI INTERNATIONAL HOTEL",
+                  "Ganpathi Nagar, Paharia",
+                  "Varanasi, Uttar Pradesh 221007",
                 ]}
               />
-              <ContactDetail icon={PhoneIcon} content={["(555) 360-SALON"]} />
+              <ContactDetail icon={PhoneIcon} content={["(+91) 00000 00000"]} />
               <ContactDetail
                 icon={MailIcon}
                 content={["info@360salonacademy.com"]}
               />
               <ContactDetail
                 icon={ClockIcon}
-                content={["Mon-Fri: 9AM-8PM", "Sat: 8AM-6PM, Sun: 10AM-5PM"]}
+                content={["Mon-Sat: 11:00 AM - 3:00 PM", "Sunday: Closed"]}
               />
             </div>
           </div>

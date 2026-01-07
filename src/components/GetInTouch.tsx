@@ -100,7 +100,7 @@ export default function GetInTouch() {
   };
 
   const mapIframeSrc =
-    "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3024.1627964434914!2d-74.00844738459463!3d40.7132920793315!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89c25a18359b3d09%3A0x8382d5e236b2880c!2sNew%20York%20City%20Hall!5e0!3m2!1sen!2sus!4v1636577881000!5m2!1sen!2sus";
+    "https://www.google.com/maps?q=360%20SALON%2C%20opposite%20SURABHI%20INTERNATIONAL%20HOTEL%2C%20Ganpathi%20Nagar%2C%20Paharia%2C%20Varanasi%2C%20Uttar%20Pradesh%20221007&output=embed";
 
   return (
     <section className="py-20 bg-gray-50" id="contact">
@@ -131,8 +131,10 @@ export default function GetInTouch() {
                     icon={MapPinIcon}
                     title="Location"
                     content={[
-                      "123 Beauty Boulevard",
-                      "Luxury District, City 12345",
+                      "360 SALON",
+                      "opposite SURABHI INTERNATIONAL HOTEL",
+                      "Ganpathi Nagar, Paharia",
+                      "Varanasi, Uttar Pradesh 221007",
                     ]}
                   />
 

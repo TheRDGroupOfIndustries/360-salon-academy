@@ -42,6 +42,8 @@ export async function POST(req: Request) {
       },
     });
 
+    const BRAND_NAME = process.env.EMAIL_FROM_NAME || "360 Salon & Academy";
+
     /* -----------------------------------
        CONDITIONAL HTML BLOCKS
     ----------------------------------- */
@@ -61,7 +63,8 @@ export async function POST(req: Request) {
           1. EMAIL TO ADMIN
     ================================= */
     await transporter.sendMail({
-      from: email,
+      from: { name: BRAND_NAME, address: process.env.EMAIL_USER as string },
+      replyTo: email,
       to: process.env.EMAIL_USER,
       subject: `New ${type === "appointment" ? "Appointment" : "Academy Enquiry"} — ${first_name} ${last_name}`,
       html: `
@@ -90,8 +93,9 @@ export async function POST(req: Request) {
          2. AUTO-REPLY TO USER
     ================================= */
     await transporter.sendMail({
-      from: process.env.EMAIL_USER,
+      from: { name: BRAND_NAME, address: process.env.EMAIL_USER as string },
       to: email,
+      replyTo: process.env.EMAIL_USER as string,
       subject: `We Received Your ${type === "appointment" ? "Appointment Request" : "Enquiry"} ✔`,
       html: `
       <div style="font-family: Arial; line-height: 1.6; color: #333;">

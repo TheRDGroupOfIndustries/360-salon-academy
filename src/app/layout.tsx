@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono, Playfair_Display } from "next/font/google";
 import "./globals.css";
+import DisableServiceWorker from "@/components/DisableServiceWorker";
 
 const playfair = Playfair_Display({
   variable: "--font-playfair",
@@ -33,6 +34,7 @@ export default function RootLayout({
       <body
         className={`${geistSans.variable} ${geistMono.variable} ${playfair.variable} font-sans antialiased`}
       >
+        <DisableServiceWorker />
         {children}
       </body>
     </html>
