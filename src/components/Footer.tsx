@@ -256,7 +256,7 @@ export default function Footer() {
               />
               <ContactDetail
                 icon={ClockIcon}
-                content={["Mon-Sat: 11:00 AM - 3:00 PM", "Sunday: Closed"]}
+                content={["Mon-Sat: 11:00 AM - 3:00 PM", "Sunday: open till 4:00 PM"]}
               />
             </div>
           </div>
