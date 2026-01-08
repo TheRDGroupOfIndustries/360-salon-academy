@@ -141,7 +141,7 @@ export default function GetInTouch() {
                   <ContactItem
                     icon={PhoneIcon}
                     title="Phone"
-                    content={["(555) 360-SALON", "(555) 360-7256"]}
+                    content={["+91 63891 21360"]}
                   />
 
                   <ContactItem
