@@ -249,7 +249,7 @@ export default function Footer() {
                   "Varanasi, Uttar Pradesh 221007",
                 ]}
               />
-              <ContactDetail icon={PhoneIcon} content={["(+91) 00000 00000"]} />
+              <ContactDetail icon={PhoneIcon} content={["+91 63891 21360"]} />
               <ContactDetail
                 icon={MailIcon}
                 content={["info@360salonacademy.com"]}

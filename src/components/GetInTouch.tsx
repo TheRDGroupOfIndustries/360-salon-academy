@@ -141,7 +141,7 @@ export default function GetInTouch() {
                   <ContactItem
                     icon={PhoneIcon}
                     title="Phone"
-                    content={["(555) 360-SALON", "(555) 360-7256"]}
+                    content={["+91 63891 21360"]}
                   />
 
                   <ContactItem
@@ -181,32 +181,34 @@ export default function GetInTouch() {
 
                 {/* WhatsApp Button */}
                 <div className="">
-                  <button
-                    onClick={() => console.log("Directing to WhatsApp chat...")}
-                        className={[
-                          "inline-flex",
-                          "items-center",
-                          "justify-center",
-                          "px-8",
-                          "py-3",
-                          "bg-green-500",
-                          "text-white",
-                          "font-semibold",
-                          "text-lg",
-                          "rounded-lg",
-                          "shadow-lg",
-                          "shadow-green-500/50",
-                          "hover:bg-green-600",
-                          "transition",
-                          "duration-200",
-                          "transform",
-                          "hover:scale-[1.02]",
-                          "active:scale-[0.98]",
-                        ].join(" ")}
+                  <a
+                    href="https://wa.me/916389121360"
+                    target="_blank"
+                    rel="noreferrer"
+                    className={[
+                      "inline-flex",
+                      "items-center",
+                      "justify-center",
+                      "px-8",
+                      "py-3",
+                      "bg-green-500",
+                      "text-white",
+                      "font-semibold",
+                      "text-lg",
+                      "rounded-lg",
+                      "shadow-lg",
+                      "shadow-green-500/50",
+                      "hover:bg-green-600",
+                      "transition",
+                      "duration-200",
+                      "transform",
+                      "hover:scale-[1.02]",
+                      "active:scale-[0.98]",
+                    ].join(" ")}
                   >
                     <FaWhatsapp className="w-5 h-5 mr-3" />
                     Chat on WhatsApp
-                  </button>
+                  </a>
                 </div>
               </div>
             </div>
