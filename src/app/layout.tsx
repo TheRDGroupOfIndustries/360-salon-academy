@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Geist, Geist_Mono, Playfair_Display } from "next/font/google";
 import "./globals.css";
 import DisableServiceWorker from "@/components/DisableServiceWorker";
+import Script from "next/script";
 
 const playfair = Playfair_Display({
   variable: "--font-playfair",
@@ -31,12 +32,28 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body
-        className={`${geistSans.variable} ${geistMono.variable} ${playfair.variable} font-sans antialiased`}
-      >
-        <DisableServiceWorker />
-        {children}
-      </body>
-    </html>
+  <head>
+    {/* Google Ads / gtag */}
+    <Script
+      src="https://www.googletagmanager.com/gtag/js?id=AW-17039330491"
+      strategy="afterInteractive"
+    />
+    <Script id="google-ads" strategy="afterInteractive">
+      {`
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'AW-17039330491');
+      `}
+    </Script>
+  </head>
+
+  <body
+    className={`${geistSans.variable} ${geistMono.variable} ${playfair.variable} font-sans antialiased`}
+  >
+    <DisableServiceWorker />
+    {children}
+  </body>
+</html>
   );
 }
