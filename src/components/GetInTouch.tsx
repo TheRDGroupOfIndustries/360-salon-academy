@@ -85,6 +85,12 @@ export default function GetInTouch() {
     setLoading(false);
 
     if (json.success) {
+      // Fire Google Ads conversion event
+      if (typeof window !== "undefined" && typeof window.gtag === "function") {
+        window.gtag("event", "conversion", {
+          send_to: "AW-17039330491/QWMqCJ3X4OgaELuZ_rw_",
+        });
+      }
       setFormMessageType("success");
       setFormMessage("Submitted Successfully!");
       e.target.reset();
